@@ -1,0 +1,42 @@
+
+================================= Common Patches (DSDT) ==================================
+
+[syn] Fix ADBG Error
+[syn] Rename _DSM methods to XDSM
+
+[sys] Fix _WAK Arg0 v2
+[sys] Fix Mutex with non-zero SyncLevel
+[sys] HPET Fix
+[sys] IRQ Fix
+[sys] OS Check Fix (Windows 10)
+[sys] RTC Fix
+[sys] SMBUS Fix
+
+==================== Specific Patches (DSDT) for Lenovo G50-80 ===================
+
+[usb] 7-series/8-series USB
+[usb] USB_3PRW 0x6D Skylake (instant wake)
+
+==================== Brightness shortcuts Patches (DSDT) for Lenovo G50-80 ===================
+
+##### See Brightness keys post by RehabMan
+into method label _Q11 replace_content
+begin
+// Brightness Down\n
+    Notify(\_SB.PCI0.LPCB.PS2K, 0x0405)\n
+end;
+into method label _Q12 replace_content
+begin
+// Brightness Up\n
+    Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)\n
+end;
+#####
+
+================================ Common Patches (SSDTs) (For me, not appiled yet)==================================
+
+Rename _DSM methods to XDSM
+Rename GFX0 to IGPU
+Rename B0D3 to HDAU
+Cleanup/Fix Errors (SSDT)
+Remove _PSS placeholders
+
